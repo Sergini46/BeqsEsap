@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{57A9B976-424E-4860-A3E6-11CCBEE25EB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Convocatoria.Datos</RootNamespace>
+    <AssemblyName>Convocatoria.Datos</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.2.1100\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBContext\ConvocatoriaModel.cs" />
+    <Compile Include="Entities\TI_ANEXOHOJAVIDA.cs" />
+    <Compile Include="Entities\TM_ACADEMICA.cs" />
+    <Compile Include="Entities\TM_CONVOCATORIACARGO.cs" />
+    <Compile Include="Entities\TM_CONVOCATORIAMODULO.cs" />
+    <Compile Include="Entities\TM_CRONOGRAMA.cs" />
+    <Compile Include="Entities\TM_CRONOGRAMAACTIVIDAD.cs" />
+    <Compile Include="Entities\TM_DOCENTE.cs" />
+    <Compile Include="Entities\TM_EXPERIENCIAOTROS.cs" />
+    <Compile Include="Entities\TM_HOJAVIDA.cs" />
+    <Compile Include="Entities\TM_HOJAVIDAOTRASEXPERIENCIAS.cs" />
+    <Compile Include="Entities\TM_INSCRIPCIONCONVOCATORIA.cs" />
+    <Compile Include="Entities\TM_INVESTIGACION.cs" />
+    <Compile Include="Entities\TM_LABORAL.cs" />
+    <Compile Include="Entities\TM_PUBLICACIONES.cs" />
+    <Compile Include="Entities\TM_RECONOCIMIENTOS.cs" />
+    <Compile Include="Entities\TP_ACTIVIDAD.cs" />
+    <Compile Include="Entities\TP_CARGO.cs" />
+    <Compile Include="Entities\TP_CIUDAD.cs" />
+    <Compile Include="Entities\TP_CONVOCATORIA.cs" />
+    <Compile Include="Entities\TP_DEPARTAMENTO.cs" />
+    <Compile Include="Entities\TP_ENTIDADEDUCATIVA.cs" />
+    <Compile Include="Entities\TP_ETAPA.cs" />
+    <Compile Include="Entities\TP_GENERO.cs" />
+    <Compile Include="Entities\TP_MODULO.cs" />
+    <Compile Include="Entities\TP_OTRASEXPERIENCIAS.cs" />
+    <Compile Include="Entities\TP_PAIS.cs" />
+    <Compile Include="Entities\TP_PERSONA.cs" />
+    <Compile Include="Entities\TP_PROGRAMASFORMACION.cs" />
+    <Compile Include="Entities\TP_TIPODISCAPACIDAD.cs" />
+    <Compile Include="Entities\TP_TIPODOCUMENTOANEXO.cs" />
+    <Compile Include="Entities\TP_TIPOENTIDADEDUCATIVA.cs" />
+    <Compile Include="Entities\TP_TIPOFORMACION.cs" />
+    <Compile Include="Entities\TP_TIPOIDENTIFICACION.cs" />
+    <Compile Include="Entities\TP_TIPONIVELEDUCATIVO.cs" />
+    <Compile Include="Entities\TP_TIPOPUBLICACION.cs" />
+    <Compile Include="Entities\TP_TIPORECONOCIMIENTO.cs" />
+    <Compile Include="Entities\TP_TIPOVINCULACION.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

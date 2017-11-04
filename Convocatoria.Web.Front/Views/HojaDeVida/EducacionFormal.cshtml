@@ -1,0 +1,81 @@
+﻿@using Convocatoria.Web.Front.Models
+@model HojaDeVidaModel
+@{
+    ViewBag.Title = "EducacionFormal";
+    Layout = "~/Views/Master.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-calendar font-dark"></i>
+                    <span class="caption-subject font-dark sbold uppercase"><strong>Educación Formal</strong></span>
+                </div>
+
+            </div>
+            <div class="portlet-body form">
+                <hr>
+                <div class="row">
+                    <label class="col-md-2 control-label">Nombres</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+                    </div>
+                    <label class="col-md-2 control-label">Apellidos</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <label class="col-md-2 control-label">Tipo Identificacion</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.DdlIdTipoIdentificacion, new SelectList(Model.ListTipoIdentificacion, "IdTipoIdentificacion", "NombreTipoIdentificacion"), "- Seleccione-", new { @class = "form-control" })
+                    </div>
+                    <label class="col-md-2 control-label">Identificacion</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Identificacion, new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <label class="col-md-2 control-label">Fecha Nacimiento</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control" })
+                    </div>
+                    <label class="col-md-2 control-label">Genero</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.DdlIdGenero, new SelectList(Model.ListGenero, "IdGenero", "NombreGenero"), "- Seleccione-", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <label class="col-md-2 control-label">Pais Nacimiento</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.DdlIdPais, new SelectList(Model.ListPais, "ID_TP_PAIS", "NOMBRE"), "- Seleccione-", new { @class = "form-control" })
+                    </div>
+                    <label class="col-md-2 control-label">Departamento Nacimiento</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.DdlIdDepartamento, new SelectList(Model.ListDepartamento, "IdDepartamento", "NombreDepartamento"), "- Seleccione-", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <label class="col-md-2 control-label">Ciudad Nacimiento</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.DdlIdCiudad, new SelectList(Model.ListCiudad, "IdCiudad", "NombreCiudad"), "- Seleccione-", new { @class = "form-control" })
+                    </div>
+                    <label class="col-md-2 control-label">Fecha Expedicion Identificacion</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.FechaExpedicion, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT BODY -->
+</div>
+

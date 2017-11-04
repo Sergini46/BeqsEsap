@@ -1,0 +1,25 @@
+﻿@using Convocatoria.Web.Front.Models
+@model HojaDeVidaModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Master.cshtml";
+}
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            @Html.ActionLink("Datos personales", "index", new { vista = 0 })
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            @Html.ActionLink("Educacion formal", "index", new { vista = 1 })
+            <i class="fa fa-circle"></i>
+        </li>
+    </ul>
+</div>
+
+<div>
+    @if (Model.Vista == 1)
+    {  @Html.Partial("EducacionFormal")    }
+    else
+    {   @Html.Partial("DatosPersonales")    }
+</div>

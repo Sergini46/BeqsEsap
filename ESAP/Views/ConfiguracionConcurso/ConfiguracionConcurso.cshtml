@@ -1,0 +1,63 @@
+﻿@using ESAP.Models
+@model ConfiguracionConcursoModel
+@{
+    ViewBag.Title = "Configuracion Concurso";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+@if (Model.Vista>0 && Model.Vista <= 7)
+{
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                @Html.ActionLink("Cronograma", "index", new { vista = 2 })
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                @Html.ActionLink("Modulos", "index", new { vista = 5 })
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                @Html.ActionLink("Ponderacion", "index", new { vista = 7 })
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                @Html.ActionLink("Cargos", "index", new { vista = 1 })
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                @Html.ActionLink("HojaDeVida", "index", new { vista = 4 })
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                @Html.ActionLink("OtrosParametros", "index", new { vista = 6 })
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                @Html.ActionLink("Evaluacion", "index", new { vista = 3 })
+                <i class="fa fa-circle"></i>
+            </li>
+        </ul>
+    </div>
+}
+<!-- END PAGE BAR -->
+<!-- BEGIN PAGE TITLE-->
+<div>
+    @if (Model.Vista == 1)
+    {   @Html.Partial("Cargos")    }
+    else if (Model.Vista == 2)
+    {   @Html.Partial("Cronograma")    }
+    else if (Model.Vista == 3)
+    {   @Html.Partial("Evaluacion")    }
+    else if (Model.Vista == 4)
+    {   @Html.Partial("HojaDeVida")    }
+    else if (Model.Vista == 5)
+    {   @Html.Partial("Modulos")    }
+    else if (Model.Vista == 6)
+    {   @Html.Partial("OtrosParametros")    }
+    else if (Model.Vista == 7)
+    {   @Html.Partial("Ponderacion")    }
+    else
+    {   @Html.Partial("Busqueda")    }
+</div>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->

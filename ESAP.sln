@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convocatoria.Datos", "Convocatoria.Datos\Convocatoria.Datos.csproj", "{57A9B976-424E-4860-A3E6-11CCBEE25EB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convocatoria.Negocio", "Convoctaoria.Negocio\Convocatoria.Negocio.csproj", "{F44D3EB9-187B-448D-9781-9B972542D6DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convocatoria.Web.Back", "Convocatoria.Web.Back\Convocatoria.Web.Back.csproj", "{F6050B1B-0D0B-4C23-95B4-E7FCB8F85D99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convocatoria.Web.Front", "Convocatoria.Web.Front\Convocatoria.Web.Front.csproj", "{2CD35E90-B9C3-461D-9FE0-8DE49C48FEC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57A9B976-424E-4860-A3E6-11CCBEE25EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A9B976-424E-4860-A3E6-11CCBEE25EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A9B976-424E-4860-A3E6-11CCBEE25EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A9B976-424E-4860-A3E6-11CCBEE25EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44D3EB9-187B-448D-9781-9B972542D6DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44D3EB9-187B-448D-9781-9B972542D6DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44D3EB9-187B-448D-9781-9B972542D6DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44D3EB9-187B-448D-9781-9B972542D6DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6050B1B-0D0B-4C23-95B4-E7FCB8F85D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6050B1B-0D0B-4C23-95B4-E7FCB8F85D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6050B1B-0D0B-4C23-95B4-E7FCB8F85D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6050B1B-0D0B-4C23-95B4-E7FCB8F85D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD35E90-B9C3-461D-9FE0-8DE49C48FEC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD35E90-B9C3-461D-9FE0-8DE49C48FEC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD35E90-B9C3-461D-9FE0-8DE49C48FEC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD35E90-B9C3-461D-9FE0-8DE49C48FEC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://beqs1.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Convocatoria.Datos\\Convocatoria.Datos.csproj
+		SccProjectName1 = Convocatoria.Datos
+		SccLocalPath1 = Convocatoria.Datos
+		SccProjectUniqueName2 = Convoctaoria.Negocio\\Convocatoria.Negocio.csproj
+		SccProjectName2 = Convoctaoria.Negocio
+		SccLocalPath2 = Convoctaoria.Negocio
+		SccProjectUniqueName3 = Convocatoria.Web.Back\\Convocatoria.Web.Back.csproj
+		SccProjectName3 = Convocatoria.Web.Back
+		SccLocalPath3 = Convocatoria.Web.Back
+		SccProjectUniqueName4 = Convocatoria.Web.Front\\Convocatoria.Web.Front.csproj
+		SccProjectName4 = Convocatoria.Web.Front
+		SccLocalPath4 = Convocatoria.Web.Front
+	EndGlobalSection
+EndGlobal
