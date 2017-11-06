@@ -48,10 +48,13 @@ namespace Convocatoria.Negocio.Entidades
                     var datos = from AS in context.TP_TIPOIDENTIFICACION
                                 select AS;
 
-                    List<Convocatoria.Datos.Entities.TP_TIPOIDENTIFICACION> TIPOIDENTIFICACION = datos.ToList<Convocatoria.Datos.Entities.TP_TIPOIDENTIFICACION>();
-                    for (int i = 0; i < TIPOIDENTIFICACION.Count; i++)
+                    List<Convocatoria.Datos.Entities.TP_TIPOIDENTIFICACION> TiposIdentificacion = datos.ToList<Convocatoria.Datos.Entities.TP_TIPOIDENTIFICACION>();
+                    if (TiposIdentificacion != null)
                     {
-                        informacion.Lista.Add(new GenericDropDown() { Id = TIPOIDENTIFICACION[i].ID_TP_TIPOIDENTIFICACION, Valor = TIPOIDENTIFICACION[i].NOMBRE });
+                        for (int i = 0; i < TiposIdentificacion.Count; i++)
+                        {
+                            informacion.Lista.Add(new GenericDropDown() { Id = TiposIdentificacion[i].ID_TP_TIPOIDENTIFICACION, Valor = TiposIdentificacion[i].NOMBRE });
+                        }
                     }
                 }
                 informacion.CodigoError = "200";
@@ -74,10 +77,13 @@ namespace Convocatoria.Negocio.Entidades
                     var datos = from AS in context.TP_GENERO
                                 select AS;
 
-                    List<Convocatoria.Datos.Entities.TP_GENERO> GENERO = datos.ToList<Convocatoria.Datos.Entities.TP_GENERO>();
-                    for (int i = 0; i < GENERO.Count; i++)
+                    List<Convocatoria.Datos.Entities.TP_GENERO> Generos = datos.ToList<Convocatoria.Datos.Entities.TP_GENERO>();
+                    if (Generos != null)
                     {
-                        informacion.Lista.Add(new GenericDropDown() { Id = GENERO[i].ID_TP_GENERO, Valor = GENERO[i].NOMBRE });
+                        for (int i = 0; i < Generos.Count; i++)
+                        {
+                            informacion.Lista.Add(new GenericDropDown() { Id = Generos[i].ID_TP_GENERO, Valor = Generos[i].NOMBRE });
+                        }
                     }
                 }
                 informacion.CodigoError = "200";
@@ -126,10 +132,13 @@ namespace Convocatoria.Negocio.Entidades
                     var datos = from AS in context.TP_CIUDAD
                                 select AS;
 
-                    List<Convocatoria.Datos.Entities.TP_CIUDAD> CIUDAD = datos.ToList<Convocatoria.Datos.Entities.TP_CIUDAD>();
-                    for (int i = 0; i < CIUDAD.Count; i++)
+                    List<Convocatoria.Datos.Entities.TP_CIUDAD> Ciudades = datos.ToList<Convocatoria.Datos.Entities.TP_CIUDAD>();
+                    if (Ciudades != null)
                     {
-                        informacion.Lista.Add(new GenericDropDown() { Id = CIUDAD[i].ID_TP_CIUDAD, Valor = CIUDAD[i].NOMBRE });
+                        for (int i = 0; i < Ciudades.Count; i++)
+                        {
+                            informacion.Lista.Add(new GenericDropDown() { Id = Ciudades[i].ID_TP_CIUDAD, Valor = Ciudades[i].NOMBRE });
+                        }
                     }
                 }
                 informacion.CodigoError = "200";
@@ -141,36 +150,39 @@ namespace Convocatoria.Negocio.Entidades
             }
             return informacion;
         }
-        //public IModel GetDiscapacidad()
-        //{
-        //    ListGenericDropDown informacion = new ListGenericDropDown();
-        //    informacion.Lista = new List<GenericDropDown>();
-        //    try
-        //    {
-        //        using (var context = new Convocatoria.Datos.DBContext.ConvocatoriaModel())
-        //        {
-        //            var datos = from AS in context.TP_dis
-        //                        select AS;
+        public IModel GetDiscapacidad()
+        {
+            ListGenericDropDown informacion = new ListGenericDropDown();
+            informacion.Lista = new List<GenericDropDown>();
+            try
+            {
+                using (var context = new Convocatoria.Datos.DBContext.ConvocatoriaModel())
+                {
+                    var datos = from AS in context.TP_TIPODISCAPACIDAD
+                                select AS;
 
-        //            List<Convocatoria.Datos.Entities.TP_CIUDAD> CIUDAD = datos.ToList<Convocatoria.Datos.Entities.TP_CIUDAD>();
-        //            for (int i = 0; i < CIUDAD.Count; i++)
-        //            {
-        //                informacion.Lista.Add(new GenericDropDown() { Id = CIUDAD[i].ID_TP_CIUDAD, Valor = CIUDAD[i].NOMBRE });
-        //            }
-        //        }
-        //        informacion.CodigoError = "200";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        informacion.MensajeError = ex.Message;
-        //        informacion.CodigoError = "403";
-        //    }
-        //    return informacion;
-        //}
+                    List<Convocatoria.Datos.Entities.TP_TIPODISCAPACIDAD> Discapacidades = datos.ToList<Convocatoria.Datos.Entities.TP_TIPODISCAPACIDAD>();
+                    for (int i = 0; i < Discapacidades.Count; i++)
+                    {
+                        informacion.Lista.Add(new GenericDropDown() { Id = Discapacidades[i].ID_TP_TIPODISCAPACIDAD, Valor = Discapacidades[i].NOMBRE });
+                    }
+                }
+                informacion.CodigoError = "200";
+            }
+            catch (Exception ex)
+            {
+                informacion.MensajeError = ex.Message;
+                informacion.CodigoError = "403";
+            }
+            return informacion;
+        }
         public IModel SuMetodo()
         {
             throw new NotImplementedException();
         }
+
+
+
 
         /****************************************************************************************************************
          * 

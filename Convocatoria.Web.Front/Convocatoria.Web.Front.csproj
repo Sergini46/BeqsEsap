@@ -187,6 +187,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ConfiguracionConcursoController.cs" />
+    <Compile Include="Controllers\EjemploPersonaController.cs" />
     <Compile Include="Controllers\HojaDeVidaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -194,11 +195,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AuditoriaModel.cs" />
     <Compile Include="Models\ConfiguracionConcursoModel.cs" />
+    <Compile Include="Models\EjemploPersonaModel.cs" />
     <Compile Include="Models\HojaDeVidaModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexModel.cs" />
+    <Compile Include="Models\ItemDropDown.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MensajeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -322,6 +327,7 @@
     <Content Include="Views\HojaDeVida\DatosPersonales.cshtml" />
     <Content Include="Views\HojaDeVida\EducacionFormal.cshtml" />
     <Content Include="Views\HojaDeVida\Index.cshtml" />
+    <Content Include="Views\EjemploPersona\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

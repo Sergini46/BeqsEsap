@@ -9,5 +9,6 @@ namespace Convocatoria.Negocio.StandarContract
     {
         public string CodigoError { get; set; }
         public string MensajeError { get; set; }
+
     }
 }
