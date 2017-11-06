@@ -10,7 +10,7 @@
             <div class="portlet-title tabbable-line">
                 <div class="caption">
                     <i class="fa fa-certificate"></i>
-                    <span class="caption-subject font-dark sbold uppercase"><strong>Educación Formal</strong></span>
+                    <span class="caption-subject font-dark sbold uppercase"><strong>Educación No Formal</strong></span>
                 </div>
 
                 <ul class="nav nav-tabs">
@@ -19,7 +19,7 @@
                         <a href="#portlet_tab2" data-toggle="tab">Adicionar/Editar  </a>
                     </li>
                     <li class="active">
-                        <a href="#portlet_tab1" data-toggle="tab"> Tu educación formal </a>
+                        <a href="#portlet_tab1" data-toggle="tab"> Tu educación no formal </a>
                     </li>
                 </ul>
             </div>
@@ -35,12 +35,12 @@
                         <div class="row">
                             <label class="col-md-2 control-label">Pais donde estudió</label>
                             <div class="col-md-4">
-                                @Html.DropDownListFor(model => model.ddlIdPaisDondeEstudio, new SelectList(Model.ListPaisDondeEstudio, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.ddlIdPaisDondeEstudioNF, new SelectList(Model.ListPaisDondeEstudioNF, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione el país donde estudió</span>
                             </div>
                             <label class="col-md-2 control-label">Departamento donde estudió</label>
                             <div class="col-md-4">
-                                @Html.DropDownListFor(model => model.ddlIdDepartamentoDondeEstudio, new SelectList(Model.ListDepartamentoDondeEstudio, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.ddlIdDepartamentoDondeEstudioNF, new SelectList(Model.ListDepartamentoDondeEstudioNF, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione el departamento donde estudió</span>
                             </div>
                         </div>
@@ -48,12 +48,12 @@
                         <div class="row">
                             <label class="col-md-2 control-label">Ciudad donde estudió</label>
                             <div class="col-md-4">
-                                @Html.DropDownListFor(model => model.ddlIdCiudadDondeEstudio, new SelectList(Model.ListCiudadDondeEstudio, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.ddlIdCiudadDondeEstudioNF, new SelectList(Model.ListCiudadDondeEstudioNF, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione ciudad donde estudió</span>
                             </div>
                             <label class="col-md-2 control-label">Institución donde estudió</label>
                             <div class="col-md-4">
-                                @Html.DropDownListFor(model => model.ddlIdInstitucionDondeEstudio, new SelectList(Model.ListInstitucionDondeEstudio, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.ddlIdInstitucionDondeEstudioNF, new SelectList(Model.ListInstitucionDondeEstudioNF, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione la universidad donde estudió </span>
                             </div>
                         </div>
@@ -70,27 +70,15 @@
                         </div>
                         <br />
                         <div class="row">
-                            <label class="col-md-2 control-label">Termino estudios</label>
+                            <label class="col-md-2 control-label">Intensidad horaria</label>
                             <div class="col-md-4">
-
+                                @Html.TextBoxFor(model => model.IntensidadHoraria, new { @class = "form-control" })
                             </div>
-                            <label class="col-md-2 control-label">Fecha terminación</label>
+                            <label class="col-md-2 control-label">Año terminación</label>
                             <div class="col-md-4">
-                                @Html.TextBoxFor(model => model.FechaTerminacionEstudios, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.AnnoTerminacion, new { @class = "form-control" })
                             </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <label class="col-md-2 control-label">Último semestre (Si no ha terminado)</label>
-                            <div class="col-md-4">
-                                @Html.TextBoxFor(model => model.FechaUltimoSemestre, new { @class = "form-control" })
-                            </div>
-                            <label class="col-md-2 control-label">Fecha finalización semestre (SI no ha terminado)</label>
-                            <div class="col-md-4">
-                                @Html.TextBoxFor(model => model.FechaFormalizacionSemestre, new { @class = "form-control" })
-                            </div>
-                        </div>
-                        <br />
+                        </div>                                                <br />
                     </div>
 
                 @*</div>

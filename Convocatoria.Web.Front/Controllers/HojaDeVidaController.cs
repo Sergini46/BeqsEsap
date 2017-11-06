@@ -52,12 +52,17 @@ namespace Convocatoria.Web.Front.Controllers
 
             if (modelo.Vista == 1)// carga inicial de educacion formal
             {
-                CargaInicialDP();
+                CargaInicialEF();
             }
-            else// carga inicial de datos personales
+            else if(modelo.Vista == 0)// carga inicial de datos personales
             {
                 CargaInicialDP();
             }
+            else if (modelo.Vista == 2)// carga inicial de datos personales
+            {
+                CargaInicialENF();
+            }
+
             return View(modelo);
         }
 
@@ -157,6 +162,26 @@ namespace Convocatoria.Web.Front.Controllers
             }
             return list;
         }
+
+        private List<ListInstitucion> CargarInstitucion()
+        {
+            List<ListInstitucion> list = new List<ListInstitucion>();
+            list = new List<ListInstitucion>();
+            try
+            {
+                Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetInstituciones();
+                if (Datos.CodigoError == "200")
+                {
+                    foreach (var item in Datos.Lista)
+                        list.Add(new ListInstitucion() { Id = item.Id, Nombre = item.Valor });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return list;
+        }
         #endregion
 
         #region Datos Personales
@@ -181,11 +206,54 @@ namespace Convocatoria.Web.Front.Controllers
         }
         #endregion
 
+        #region Educación Formal
+
         public ActionResult EducacionFormal()
         {
-            CargaInicialDP();
+            CargaInicialEF();
             return View("EducacionFormal", modelo);
         }
+
+        private void CargaInicialEF()
+        {
+            try
+            {
+                modelo.ListPaisDondeEstudio = CargarPais();
+                modelo.ListDepartamentoDondeEstudio = CargarDepartamento();
+                modelo.ListCiudadDondeEstudio = CargarCiudad();
+                modelo.ListInstitucionDondeEstudio = CargarInstitucion();               
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
+
+
+        #region Educación No Formal
+
+        public ActionResult EducacionNoFormal()
+        {
+            CargaInicialENF();
+            return View("EducacionNoFormal", modelo);
+        }
+
+        private void CargaInicialENF()
+        {
+            try
+            {
+                modelo.ListPaisDondeEstudioNF = CargarPais();
+                modelo.ListDepartamentoDondeEstudioNF = CargarDepartamento();
+                modelo.ListCiudadDondeEstudioNF = CargarCiudad();
+                modelo.ListInstitucionDondeEstudioNF = CargarInstitucion();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
 
     }
 }

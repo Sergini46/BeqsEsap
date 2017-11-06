@@ -259,5 +259,32 @@ namespace Convocatoria.Negocio.Entidades
         //            }
 
         //    }
+
+        public IModel GetInstituciones()
+        {
+            ListGenericDropDown informacion = new ListGenericDropDown();
+            informacion.Lista = new List<GenericDropDown>();
+            try
+            {
+                using (var context = new Convocatoria.Datos.DBContext.ConvocatoriaModel())
+                {
+                    var datos = from AS in context.TP_ENTIDADEDUCATIVA
+                                select AS;
+
+                    List<Convocatoria.Datos.Entities.TP_ENTIDADEDUCATIVA> paises = datos.ToList<Convocatoria.Datos.Entities.TP_ENTIDADEDUCATIVA>();
+                    for (int i = 0; i < paises.Count; i++)
+                    {
+                        informacion.Lista.Add(new GenericDropDown() { Id = paises[i].ID_TP_ENTIDADEDUCATIVA, Valor = paises[i].NOMBRE });
+                    }
+                }
+                informacion.CodigoError = "200";
+            }
+            catch (Exception ex)
+            {
+                informacion.MensajeError = ex.Message;
+                informacion.CodigoError = "403";
+            }
+            return informacion;
+        }
     }
 }

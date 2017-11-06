@@ -14,12 +14,18 @@
             @Html.ActionLink("Educacion formal", "index", new { vista = 1 })
             <i class="fa fa-circle"></i>
         </li>
+        <li>
+            @Html.ActionLink("Educacion no formal", "index", new { vista = 2 })
+            <i class="fa fa-circle"></i>
+        </li>
     </ul>
 </div>
 
 <div>
     @if (Model.Vista == 1)
     {  @Html.Partial("EducacionFormal")    }
-    else
+    else if(Model.Vista == 0)
     {   @Html.Partial("DatosPersonales")    }
+    else if (Model.Vista == 2)
+    {   @Html.Partial("EducacionNoFormal")    }
 </div>

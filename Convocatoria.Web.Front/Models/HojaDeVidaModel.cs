@@ -41,6 +41,40 @@ namespace Convocatoria.Web.Front.Models
         public string Email { get; set; }
         public string RequiereApoyo { get; set; }
         #endregion
+
+        #region Estudios Formales
+        public List<ListPais> ListPaisDondeEstudio { get; set; }
+        public int? ddlIdPaisDondeEstudio { get; set; }
+        public List<ListDepartamento> ListDepartamentoDondeEstudio { get; set; }
+        public int? ddlIdDepartamentoDondeEstudio { get; set; }
+        public List<ListCiudad> ListCiudadDondeEstudio { get; set; }
+        public int? ddlIdCiudadDondeEstudio { get; set; }
+        public List<ListInstitucion> ListInstitucionDondeEstudio { get; set; }
+        public int? ddlIdInstitucionDondeEstudio { get; set; }
+        public string TipoDeEstudio { get; set; }
+        public string NombreTitulo { get; set; }
+        public Boolean TerminoEstudios { get; set; }
+        public DateTime FechaTerminacionEstudios { get; set; }
+        public DateTime FechaUltimoSemestre { get; set; }
+        public DateTime FechaFormalizacionSemestre { get; set; }
+        #endregion
+
+
+        #region Estudios No Formales
+        public List<ListPais> ListPaisDondeEstudioNF { get; set; }
+        public int? ddlIdPaisDondeEstudioNF { get; set; }
+        public List<ListDepartamento> ListDepartamentoDondeEstudioNF { get; set; }
+        public int? ddlIdDepartamentoDondeEstudioNF { get; set; }
+        public List<ListCiudad> ListCiudadDondeEstudioNF { get; set; }
+        public int? ddlIdCiudadDondeEstudioNF { get; set; }
+        public List<ListInstitucion> ListInstitucionDondeEstudioNF { get; set; }
+        public int? ddlIdInstitucionDondeEstudioNF { get; set; }
+        public string TipoDeEstudioNF { get; set; }
+        public string NombreTituloNF { get; set; }
+        public int IntensidadHoraria { get; set; }
+        public int AnnoTerminacion { get; set; }
+        #endregion
+
     }
 
     #region obj parametricos
@@ -70,6 +104,12 @@ namespace Convocatoria.Web.Front.Models
         public string Nombre { get; set; }
     }
     public class ListTipoIdentificacion
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+    }
+
+    public class ListInstitucion
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
