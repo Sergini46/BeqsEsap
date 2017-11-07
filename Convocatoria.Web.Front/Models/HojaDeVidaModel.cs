@@ -41,6 +41,14 @@ namespace Convocatoria.Web.Front.Models
         public string Email { get; set; }
         public string RequiereApoyo { get; set; }
         #endregion
+        #region Experiencia laboral
+        public string NombreEmpresa { get; set; }
+        public string Cargo { get; set; }
+        public string TelefonoEmpresa { get; set; }
+        public DateTime FechaInngreso { get; set; }
+        public DateTime FechaTerminacion { get; set; }
+        public bool Actualmente { get; set; }
+        #endregion
     }
 
     #region obj parametricos

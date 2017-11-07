@@ -14,12 +14,25 @@
             @Html.ActionLink("Educacion formal", "index", new { vista = 1 })
             <i class="fa fa-circle"></i>
         </li>
+        <li>
+            @Html.ActionLink("Experiencia laboral", "index", new { vista = 2 })
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            @Html.ActionLink("Reconocimientos", "index", new { vista = 3 })
+            <i class="fa fa-circle"></i>
+        </li>
     </ul>
 </div>
 
 <div>
     @if (Model.Vista == 1)
     {  @Html.Partial("EducacionFormal")    }
+    else if (Model.Vista == 2)
+    {   @Html.Partial("ExperienciaLaboral")    }
+    else if (Model.Vista == 3)
+    {   @Html.Partial("Reconocimientos")    }
     else
     {   @Html.Partial("DatosPersonales")    }
 </div>
+

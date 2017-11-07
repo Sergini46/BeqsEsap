@@ -71,7 +71,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Pais residencia</label>
                             <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.ddlIdPaisRecidencia, new SelectList(Model.ListPaisRecidencia, "Id", "Nombre"), "- Seleccione-")
+                                @Html.DropDownListFor(model => model.ddlIdPaisRecidencia, new SelectList(Model.ListPaisRecidencia, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione el pais de residencia</span>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Departamento residencia</label>
                             <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.ddlIdDepartamentoRecidencia, new SelectList(Model.ListDepartamentoRecidencia, "Id", "Nombre"), "- Seleccione-")
+                                @Html.DropDownListFor(model => model.ddlIdDepartamentoRecidencia, new SelectList(Model.ListDepartamentoRecidencia, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione el departamento de residencia.</span>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Ciudad residencia</label>
                             <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.ddlIdCiudadRecidencia, new SelectList(Model.ListCiudadRecidencia, "Id", "Nombre"), "- Seleccione-")
+                                @Html.DropDownListFor(model => model.ddlIdCiudadRecidencia, new SelectList(Model.ListCiudadRecidencia, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione la ciudad de residencia</span>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Limitación fisica</label>
                             <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.ddlIdDiscapacidad, new SelectList(Model.ListDiscapacidad, "Id", "Nombre"), "- Seleccione-")
+                                @Html.DropDownListFor(model => model.ddlIdDiscapacidad, new SelectList(Model.ListDiscapacidad, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione el tipo de limitacion fisica si presenta alguna.</span>
 
                             </div>

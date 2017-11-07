@@ -47,6 +47,7 @@ namespace Convocatoria.Web.Front.Controllers
             //}
 
             /*FIN Codigo de ejemplo Sergio Gracia */
+            modelo = new HojaDeVidaModel();
 
             modelo.Vista = Convert.ToInt32(vista);
 
@@ -54,12 +55,17 @@ namespace Convocatoria.Web.Front.Controllers
             {
                 CargaInicialDP();
             }
+            else if (modelo.Vista == 2)
+            {
+                CargaInicialEL();
+            }
             else// carga inicial de datos personales
             {
                 CargaInicialDP();
             }
             return View(modelo);
         }
+
 
         #region Cargas inciales drop down list
         private List<ListTipoIdentificacion> CargarTipoIdentificacion()
@@ -157,6 +163,25 @@ namespace Convocatoria.Web.Front.Controllers
             }
             return list;
         }
+        private List<ListDiscapacidad> CargarDiscapacidad()
+        {
+            List<ListDiscapacidad> list = new List<ListDiscapacidad>();
+            list = new List<ListDiscapacidad>();
+            try
+            {
+                Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetDiscapacidad();
+                if (Datos.CodigoError == "200")
+                {
+                    foreach (var item in Datos.Lista)
+                        list.Add(new ListDiscapacidad() { Id = item.Id, Nombre = item.Valor });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return list;
+        }
         #endregion
 
         #region Datos Personales
@@ -172,7 +197,23 @@ namespace Convocatoria.Web.Front.Controllers
                 modelo.ListPaisRecidencia = CargarPais();
                 modelo.ListDepartamentoRecidencia = CargarDepartamento();
                 modelo.ListCiudadRecidencia = CargarCiudad();
-                modelo.ListDiscapacidad = new List<ListDiscapacidad>();
+                modelo.ListDiscapacidad = CargarDiscapacidad();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
+
+        #region Experiencia laboral
+        private void CargaInicialEL()
+        {
+            try
+            {
+                modelo.ListPais = CargarPais();
+                modelo.ListDepartamento = CargarDepartamento();
+                modelo.ListCiudad = CargarCiudad();
             }
             catch (Exception ex)
             {
