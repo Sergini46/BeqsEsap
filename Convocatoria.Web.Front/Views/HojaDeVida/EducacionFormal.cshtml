@@ -27,8 +27,45 @@
             @*<div class="portlet-body">
                 <div class="tab-content">*@
 
-                    <div class="tab-pane" id="portlet_tab1">
+
+            <div class="tab-pane active" id="portlet_tab1">
+                <div class="row">
+                    <button type="button" class="btn default green" id="btnAdicionarExp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                
+                <div class="row">
+                    <div class="portlet mt-element-ribbon light portlet-fit bordered">
+                        <div class="ribbon ribbon-left ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
+                            <div class="ribbon-sub ribbon-clip ribbon-left"></div>
+                            <i class=" fa fa-graduation-cap"></i>
+                            Especialista gerencia estratégica
+                        </div>
+                        <div class="portlet-title">
+                            <div class="actions">
+                                <a href="javascript:;" id="clickmewow" class="btn btn-default btn-sm">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="javascript:;" class="btn btn-default btn-sm">
+                                    <i class="fa fa-minus"></i>
+                                </a>
+                            </div>
+                            <div class="caption">
+
+                                <span class="caption-subject font-green bold uppercase">Universidad de la sabana</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            Enero 2008-2009
+                            <a href="#">Certificado académico</a>
+                        </div>
                     </div>
+                </div>
+              
+            </div>
+
 
                     <div class="tab-pane" id="portlet_tab2">
                         <hr>
@@ -37,6 +74,7 @@
                             <div class="col-md-4">
                                 @Html.DropDownListFor(model => model.ddlIdPaisDondeEstudio, new SelectList(Model.ListPaisDondeEstudio, "Id", "Nombre"), "- Seleccione -", new { @class = "form-control" })
                                 <span class="help-block"> Seleccione el país donde estudió</span>
+                                
                             </div>
                             <label class="col-md-2 control-label">Departamento donde estudió</label>
                             <div class="col-md-4">
@@ -95,6 +133,23 @@
 
                 @*</div>
             </div>*@
+
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-6">
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="submit" class="btn green">Guardar</button>
+                                <button type="button" class="btn default">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <hr>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- END CONTENT BODY -->

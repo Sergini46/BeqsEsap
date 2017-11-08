@@ -61,6 +61,7 @@ namespace Convocatoria.Web.Front.Models
 
 
         #region Estudios No Formales
+        
         public List<ListPais> ListPaisDondeEstudioNF { get; set; }
         public int? ddlIdPaisDondeEstudioNF { get; set; }
         public List<ListDepartamento> ListDepartamentoDondeEstudioNF { get; set; }

@@ -54,7 +54,7 @@ namespace Convocatoria.Web.Front.Controllers
             {
                 CargaInicialEF();
             }
-            else if(modelo.Vista == 0)// carga inicial de datos personales
+            else if (modelo.Vista == 0)// carga inicial de datos personales
             {
                 CargaInicialDP();
             }
@@ -221,13 +221,25 @@ namespace Convocatoria.Web.Front.Controllers
                 modelo.ListPaisDondeEstudio = CargarPais();
                 modelo.ListDepartamentoDondeEstudio = CargarDepartamento();
                 modelo.ListCiudadDondeEstudio = CargarCiudad();
-                modelo.ListInstitucionDondeEstudio = CargarInstitucion();               
+                modelo.ListInstitucionDondeEstudio = CargarInstitucion();
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+
+        //[HttpPost]
+        //public ActionResult CrearEducacionFormal()
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        return RedirectToAction("EducacionFormal");
+        //    }
+        //    else
+        //    {
+        //    }
+        //}
         #endregion
 
 
