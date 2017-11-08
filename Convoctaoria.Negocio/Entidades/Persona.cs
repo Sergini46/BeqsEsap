@@ -45,13 +45,13 @@ namespace Convocatoria.Negocio.Entidades
                     persona.TELEFONOMOVILCONTACTO = Persona.TelefonoMovilContacto;
                     Entidad.Add(persona);
                     context.SaveChanges();
-                    datosCreacion.CodigoError = "200";
+                    datosCreacion.Codigo = string.Empty;
                 }
             }
             catch (Exception ex)
             {
-                datosCreacion.MensajeError = ex.Message;
-                datosCreacion.CodigoError = "500";
+                datosCreacion.Mensaje = ex.Message;
+                datosCreacion.Codigo = "500";
             }
             return datosCreacion;
         }
@@ -78,18 +78,18 @@ namespace Convocatoria.Negocio.Entidades
                         personEntity.AUDIT_USUARIO = Auditoria.Usuario;
                         context.Entry(personEntity).State = System.Data.Entity.EntityState.Modified;
                         context.SaveChanges();
-                        datosCreacion.CodigoError = "200";
+                        datosCreacion.Codigo = string.Empty;
                     }
                     else
                     {
-                        datosCreacion.CodigoError = "404";
+                        datosCreacion.Codigo = "404";
                     }
                 }
             }
             catch (Exception ex)
             {
-                datosCreacion.MensajeError = ex.Message;
-                datosCreacion.CodigoError = "500";
+                datosCreacion.Mensaje = ex.Message;
+                datosCreacion.Codigo = "500";
             }
             return datosCreacion;
         }
@@ -132,18 +132,18 @@ namespace Convocatoria.Negocio.Entidades
                         personEntity.TELEFONOMOVILCONTACTO = Persona.TelefonoMovilContacto;
                         context.Entry(personEntity).State = System.Data.Entity.EntityState.Modified;
                         context.SaveChanges();
-                        datosCreacion.CodigoError = "200";
+                        datosCreacion.Codigo = string.Empty;
                     }
                     else
                     {
-                        datosCreacion.CodigoError = "404";
+                        datosCreacion.Codigo = "404";
                     }
                 }
             }
             catch (Exception ex)
             {
-                datosCreacion.MensajeError = ex.Message;
-                datosCreacion.CodigoError = "500";
+                datosCreacion.Mensaje = ex.Message;
+                datosCreacion.Codigo = "500";
             }
             return datosCreacion;
         }
@@ -178,18 +178,18 @@ namespace Convocatoria.Negocio.Entidades
                         datosCreacion.Nombres = personEntity.NOMBRES;
                         datosCreacion.TelefonoFijoContato = personEntity.TELEFONOFIJOCONTACTO;
                         datosCreacion.TelefonoMovilContacto = personEntity.TELEFONOMOVILCONTACTO;
-                        datosCreacion.CodigoError = "200";
+                        datosCreacion.Codigo = string.Empty;
                     }
                     else
                     {
-                        datosCreacion.CodigoError = "404";
+                        datosCreacion.Codigo = "404";
                     }
                 }
             }
             catch (Exception ex)
             {
-                datosCreacion.MensajeError = ex.Message;
-                datosCreacion.CodigoError = "500";
+                datosCreacion.Mensaje = ex.Message;
+                datosCreacion.Codigo = "500";
             }
             return datosCreacion;
         }
