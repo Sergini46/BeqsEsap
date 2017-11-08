@@ -25,6 +25,12 @@ namespace Convocatoria.Web.Front.Controllers
             return View(model);
         }
 
+        public ActionResult ExperienciaLaboral (int? idPersona)
+        {
+            ExperienciaLaboralModel modeloParcial = new Models.ExperienciaLaboralModel() { Dato = idPersona != null ? idPersona.Value.ToString() : "0" };
+            return View(modeloParcial);
+        }
+
         private void LoadDropDown (DropDown Drop)
         {
             try

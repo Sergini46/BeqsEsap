@@ -155,6 +155,7 @@ namespace Convocatoria.Negocio.Entidades
                 using (var context = new Datos.DBContext.ConvocatoriaModel())
                 {
                     var DatosPersona = from p in context.TP_PERSONA
+                                       join l in context.TM_HOJAVIDA on p.ID_TP_PERSONA equals l.ID_TP_PERSONA
                                        where p.ID_TP_PERSONA == Persona && p.AUDIT_ELIMINADO == false
                                        select p;
 

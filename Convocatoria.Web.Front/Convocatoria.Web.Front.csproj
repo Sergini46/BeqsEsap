@@ -198,6 +198,7 @@
     <Compile Include="Models\AuditoriaModel.cs" />
     <Compile Include="Models\ConfiguracionConcursoModel.cs" />
     <Compile Include="Models\EjemploPersonaModel.cs" />
+    <Compile Include="Models\ExperienciaLaboralModel.cs" />
     <Compile Include="Models\HojaDeVidaModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexModel.cs" />
@@ -328,6 +329,7 @@
     <Content Include="Views\HojaDeVida\EducacionFormal.cshtml" />
     <Content Include="Views\HojaDeVida\Index.cshtml" />
     <Content Include="Views\EjemploPersona\Index.cshtml" />
+    <Content Include="Views\EjemploPersona\ExperienciaLaboral.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
