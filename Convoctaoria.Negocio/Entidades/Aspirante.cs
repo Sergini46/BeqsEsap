@@ -31,13 +31,13 @@ namespace Convocatoria.Negocio.Entidades
                         /*
                          . Aca todos los datos que se necesiten...
                          */
-                        informacion.CodigoError = "200";
-                        informacion.MensajeError = "Ok";
+                        informacion.Codigo = "200";
+                        informacion.Mensaje = "Ok";
                     }
                     else
                     {
-                        informacion.CodigoError = "404";
-                        informacion.MensajeError = "No encontrado";
+                        informacion.Codigo = "404";
+                        informacion.Mensaje = "No encontrado";
                     }
 
 
@@ -45,8 +45,8 @@ namespace Convocatoria.Negocio.Entidades
             }
             catch (Exception ex)
             {
-                informacion.MensajeError = ex.Message;
-                informacion.CodigoError = "403";
+                informacion.Mensaje = ex.Message;
+                informacion.Codigo = "403";
             }
             return informacion;
         }
