@@ -191,7 +191,7 @@ namespace Convocatoria.Web.Front.Controllers
             try
             {
                 Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetDiscapacidad();
-                if (Datos.CodigoError == "200")
+                if (Datos.Codigo == "200")
                 {
                     foreach (var item in Datos.Lista)
                         list.Add(new ListDiscapacidad() { Id = item.Id, Nombre = item.Valor });
@@ -249,7 +249,7 @@ namespace Convocatoria.Web.Front.Controllers
             personaCrear.IdPersona = modelo.IdPersona;
             Negocio.Dtos.Persona datosRetorno = (Negocio.Dtos.Persona)persona.Crear(personaCrear, auditoria);
 
-            if (datosRetorno.CodigoError == "200")
+            if (datosRetorno.Codigo == "200")
             {
                 AsignarModelo();
                 return Json(true, JsonRequestBehavior.AllowGet);
@@ -259,7 +259,7 @@ namespace Convocatoria.Web.Front.Controllers
                 if (modelo.Mensaje == null)
                     modelo.Mensaje = new List<MensajeModel>();
 
-                modelo.Mensaje.Add(new MensajeModel() { Codigo = datosRetorno.CodigoError, Mensaje = datosRetorno.MensajeError, InformacionAdicional = "Create" });
+                modelo.Mensaje.Add(new MensajeModel() { Codigo = datosRetorno.Codigo, Mensaje = datosRetorno.Mensaje, InformacionAdicional = "Create" });
                 AsignarModelo();
                 return Json(false, JsonRequestBehavior.AllowGet);
             }

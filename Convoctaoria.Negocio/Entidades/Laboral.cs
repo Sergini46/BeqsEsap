@@ -39,13 +39,13 @@ namespace Convocatoria.Negocio.Entidades
 
                     Entidad.Add(entiti);
                     context.SaveChanges();
-                    datosObj.CodigoError = "200";
+                    datosObj.Codigo = "200";
                 }
             }
             catch (Exception ex)
             {
-                datosObj.MensajeError = ex.Message;
-                datosObj.CodigoError = "500";
+                datosObj.Mensaje = ex.Message;
+                datosObj.Codigo = "500";
             }
             return datosObj;
         }
@@ -74,18 +74,18 @@ namespace Convocatoria.Negocio.Entidades
                         obj.IdCiudadEmpresa = Entity.ID_TP_CIUDAD_EMPRESA;
                         obj.Id = Entity.ID_TM_LABORAL;
 
-                        obj.CodigoError = "200";
+                        obj.Codigo = "200";
                     }
                     else
                     {
-                        obj.CodigoError = "404";
+                        obj.Codigo = "404";
                     }
                 }
             }
             catch (Exception ex)
             {
-                obj.MensajeError = ex.Message;
-                obj.CodigoError = "500";
+                obj.Mensaje = ex.Message;
+                obj.Codigo = "500";
             }
             return obj;
         }
