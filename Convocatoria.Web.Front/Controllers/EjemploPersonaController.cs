@@ -61,6 +61,7 @@ namespace Convocatoria.Web.Front.Controllers
                 if (Datos != null && Datos.Codigo == "200")
                 {
                     //cambiar este forach por un linq urgente -- SAGC
+                    //prueba para juancarlos -- SAGC
                     foreach (var item in Datos.Lista)
                     {
                         switch (Drop)
