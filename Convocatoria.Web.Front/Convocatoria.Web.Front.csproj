@@ -191,6 +191,7 @@
     <Compile Include="Models\AuditoriaModel.cs" />
     <Compile Include="Models\ConfiguracionConcursoModel.cs" />
     <Compile Include="Models\EjemploPersonaModel.cs" />
+    <Compile Include="Models\ExperienciaDocenteModel.cs" />
     <Compile Include="Models\ExperienciaLaboralModel.cs" />
     <Compile Include="Models\HojaDeVidaModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
