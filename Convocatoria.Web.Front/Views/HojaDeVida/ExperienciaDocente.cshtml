@@ -1,5 +1,5 @@
 ﻿@using Convocatoria.Web.Front.Models
-@model HojaDeVidaModel
+@model HojaDeVidaModel 
 
 <div class="row">
     <div class="col-md-12 ">
@@ -7,7 +7,6 @@
             <div class="form-body">
                 <h3 class="form-section">Experiencia docente</h3>
                 <div class="row">
-@* se adiciona comentario *@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label col-md-3">Institución educativa</label>
@@ -22,7 +21,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Tipo de vinculación</label>
                             <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.DdlIdTipoIdentificacion, new SelectList(Model.ListTipoIdentificacion, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                                @*@Html.DropDownListFor(model => model.DdlIdTipoIdentificacion, new SelectList(Model.ListTipoIdentificacion, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })*@
                                 <span class="help-block">Elija el tipo de vinculación</span>
                             </div>
                         </div>

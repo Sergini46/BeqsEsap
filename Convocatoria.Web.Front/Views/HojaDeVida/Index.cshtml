@@ -26,6 +26,10 @@
             @Html.ActionLink("Educacion no formal", "index", new { vista = 2 })
             <i class="fa fa-circle"></i>
         </li>
+        <li>
+            @Html.ActionLink("Experiencia docente", "index", new { vista = 4 })
+            <i class="fa fa-circle"></i>
+        </li>
     </ul>
 </div>
 
@@ -36,6 +40,8 @@
     {   @Html.Partial("ExperienciaLaboral")    }
     else if (Model.Vista == 3)
     {   @Html.Partial("Reconocimientos")    }
+    else if (Model.Vista == 4)
+    {   @Html.Partial("ExperienciaDocente")    }
     else
     {   @Html.Partial("DatosPersonales")    }
     else if (Model.Vista == 2)

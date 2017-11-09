@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Dtos\Auditoria.cs" />
     <Compile Include="Dtos\DatosAspirante.cs" />
+    <Compile Include="Dtos\Docente.cs" />
     <Compile Include="Dtos\GeneriCDropDown.cs" />
     <Compile Include="Dtos\Laboral.cs" />
     <Compile Include="Dtos\Persona.cs" />

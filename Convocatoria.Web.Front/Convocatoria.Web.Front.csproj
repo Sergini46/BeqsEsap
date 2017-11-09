@@ -195,6 +195,9 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ConfiguracionConcursoModel.cs" />
+    <Compile Include="Models\EjemploPersonaModel.cs" />
+    <Compile Include="Models\ExperienciaDocenteModel.cs" />
+    <Compile Include="Models\ExperienciaLaboralModel.cs" />
     <Compile Include="Models\HojaDeVidaModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexModel.cs" />

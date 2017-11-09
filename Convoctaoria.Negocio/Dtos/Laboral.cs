@@ -19,6 +19,8 @@ namespace Convocatoria.Negocio.Dtos
         public string NitEmpresa { get; set; }
         public string DireccionEmpresa { get; set; }
         public int IdCiudadEmpresa { get; set; }
+        public string CodigoError { get; set; }
+        public string MensajeError { get; set; }
 
     }
 }
