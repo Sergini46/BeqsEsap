@@ -76,7 +76,7 @@ namespace Convocatoria.Web.Front.Controllers
             try
             {
                 Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetTipoIdentificaciones();
-                if (Datos.CodigoError == "200")
+                if (Datos.Codigo == "200")
                 {
                     foreach (var item in Datos.Lista)
                         list.Add(new ListTipoIdentificacion() { Id = item.Id, Nombre = item.Valor });
@@ -95,7 +95,7 @@ namespace Convocatoria.Web.Front.Controllers
             try
             {
                 Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetGeneros();
-                if (Datos.CodigoError == "200")
+                if (Datos.Codigo == "200")
                 {
                     foreach (var item in Datos.Lista)
                         list.Add(new ListGenero() { Id = item.Id, Nombre = item.Valor });
@@ -114,7 +114,7 @@ namespace Convocatoria.Web.Front.Controllers
             try
             {
                 Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetDepartamentos();
-                if (Datos.CodigoError == "200")
+                if (Datos.Codigo == "200")
                 {
                     foreach (var item in Datos.Lista)
                         list.Add(new ListDepartamento() { Id = item.Id, Nombre = item.Valor });
@@ -133,7 +133,7 @@ namespace Convocatoria.Web.Front.Controllers
             try
             {
                 Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetCiudades();
-                if (Datos.CodigoError == "200")
+                if (Datos.Codigo == "200")
                 {
                     foreach (var item in Datos.Lista)
                         list.Add(new ListCiudad() { Id = item.Id, Nombre = item.Valor });
@@ -152,7 +152,7 @@ namespace Convocatoria.Web.Front.Controllers
             try
             {
                 Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetPaises();
-                if (Datos.CodigoError == "200")
+                if (Datos.Codigo == "200")
                 {
                     foreach (var item in Datos.Lista)
                         list.Add(new ListPais() { Id = item.Id, Nombre = item.Valor });

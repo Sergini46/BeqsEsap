@@ -25,6 +25,12 @@ namespace Convocatoria.Web.Front.Controllers
             return View(model);
         }
 
+        public ActionResult ExperienciaLaboral (int? idPersona)
+        {
+            ExperienciaLaboralModel modeloParcial = new Models.ExperienciaLaboralModel() { Dato = idPersona != null ? idPersona.Value.ToString() : "0" };
+            return View(modeloParcial);
+        }
+
         private void LoadDropDown (DropDown Drop)
         {
             try
@@ -52,7 +58,7 @@ namespace Convocatoria.Web.Front.Controllers
                         Datos = new Negocio.Dtos.ListGenericDropDown();
                         break;
                 }
-                if (Datos != null && Datos.CodigoError == "200")
+                if (Datos != null && Datos.Codigo == "200")
                 {
                     foreach (var item in Datos.Lista)
                     {
@@ -77,7 +83,7 @@ namespace Convocatoria.Web.Front.Controllers
                 }
                 else
                 {
-                    model.Mensajes.Add(new MensajeModel() { Codigo = Datos.CodigoError, Mensaje = Datos.MensajeError, InformacionAdicional = "LoadDropDown" });
+                    model.Mensajes.Add(new MensajeModel() { Codigo = Datos.Codigo, Mensaje = Datos.Mensaje, InformacionAdicional = "LoadDropDown" });
                 }
             }
             catch (Exception ex)
@@ -112,7 +118,7 @@ namespace Convocatoria.Web.Front.Controllers
             personaCrear.IdPersona = model.Id;
             Negocio.Dtos.Persona datosRetorno = (Negocio.Dtos.Persona) person.Crear(personaCrear, auditoria);
             
-            if(datosRetorno.CodigoError == "200")
+            if(datosRetorno.Codigo == string.Empty)
             {
                 AsignarModelo();
                 return Json(true, JsonRequestBehavior.AllowGet);
@@ -122,7 +128,7 @@ namespace Convocatoria.Web.Front.Controllers
                 if (model.Mensajes == null)
                     model.Mensajes = new List<MensajeModel>();
 
-                model.Mensajes.Add(new MensajeModel() { Codigo = datosRetorno.CodigoError, Mensaje = datosRetorno.MensajeError, InformacionAdicional = "Create" });
+                model.Mensajes.Add(new MensajeModel() { Codigo = datosRetorno.Codigo, Mensaje = datosRetorno.Mensaje, InformacionAdicional = "Create" });
                 AsignarModelo();
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
@@ -133,7 +139,7 @@ namespace Convocatoria.Web.Front.Controllers
             ObtenerModelo();
             Negocio.Dtos.Auditoria auditoria = new Negocio.Dtos.Auditoria();
             Negocio.Dtos.Persona datosRetorno = (Negocio.Dtos.Persona)person.Delete(IdPersona, auditoria);
-            if (datosRetorno.CodigoError == "200")
+            if (datosRetorno.Codigo == string.Empty)
             {
                 AsignarModelo();
                 return Json(true, JsonRequestBehavior.AllowGet);
@@ -143,7 +149,7 @@ namespace Convocatoria.Web.Front.Controllers
                 if (model.Mensajes == null)
                     model.Mensajes = new List<MensajeModel>();
 
-                model.Mensajes.Add(new MensajeModel() { Codigo = datosRetorno.CodigoError, Mensaje = datosRetorno.MensajeError, InformacionAdicional = "Create" });
+                model.Mensajes.Add(new MensajeModel() { Codigo = datosRetorno.Codigo, Mensaje = datosRetorno.Mensaje, InformacionAdicional = "Create" });
                 AsignarModelo();
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
@@ -172,7 +178,7 @@ namespace Convocatoria.Web.Front.Controllers
             personaActualizar.IdPersona = modelo.Id;
             Negocio.Dtos.Persona datosRetorno = (Negocio.Dtos.Persona)person.Update(personaActualizar, auditoria);
 
-            if (datosRetorno.CodigoError == "200")
+            if (datosRetorno.Codigo == string.Empty)
             {
                 AsignarModelo();
                 return Json(true, JsonRequestBehavior.AllowGet);
@@ -182,7 +188,7 @@ namespace Convocatoria.Web.Front.Controllers
                 if (model.Mensajes == null)
                     model.Mensajes = new List<MensajeModel>();
 
-                model.Mensajes.Add(new MensajeModel() { Codigo = datosRetorno.CodigoError, Mensaje = datosRetorno.MensajeError, InformacionAdicional = "Create" });
+                model.Mensajes.Add(new MensajeModel() { Codigo = datosRetorno.Codigo, Mensaje = datosRetorno.Mensaje, InformacionAdicional = "Create" });
                 AsignarModelo();
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
@@ -191,7 +197,7 @@ namespace Convocatoria.Web.Front.Controllers
         {
             ObtenerModelo();
             Negocio.Dtos.Persona datosRetorno = (Negocio.Dtos.Persona)person.Select(IdPersona);
-            if (datosRetorno.CodigoError == "200")
+            if (datosRetorno.Codigo == string.Empty)
             {
                 model.Apellidos = datosRetorno.Apellidos;
                 model.CiudadExamanes = datosRetorno.CiudadExamenes;
@@ -217,7 +223,7 @@ namespace Convocatoria.Web.Front.Controllers
                 if (model.Mensajes == null)
                     model.Mensajes = new List<MensajeModel>();
 
-                model.Mensajes.Add(new MensajeModel() { Codigo = datosRetorno.CodigoError, Mensaje = datosRetorno.MensajeError, InformacionAdicional = "Create" });
+                model.Mensajes.Add(new MensajeModel() { Codigo = datosRetorno.Codigo, Mensaje = datosRetorno.Mensaje, InformacionAdicional = "Create" });
                 AsignarModelo();
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
