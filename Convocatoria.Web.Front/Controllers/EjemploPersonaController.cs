@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Convocatoria.Web.Front.Controllers
 {
+    //JC prueba
     public class EjemploPersonaController : Controller
     {
         EjemploPersonaModel model ;
