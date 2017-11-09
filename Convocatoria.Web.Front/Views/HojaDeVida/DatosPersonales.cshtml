@@ -4,229 +4,231 @@
 <div class="row">
     <div class="col-md-12 ">
         <!-- BEGIN SAMPLE FORM PORTLET-->
-        <div class="portlet light bordered">
-            <h3 class="form-section">Datos Basicos</h3>
-            <div class="portlet-body form">
-                <hr>
-                <div class="row">
-                    <label class="col-md-2 control-label">Nombres</label>
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-2 control-label">Apellidos</label>
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control" })
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <label class="col-md-2 control-label">Tipo Identificacion</label>
-                    <div class="col-md-4">
-                        @Html.DropDownListFor(model => model.DdlIdTipoIdentificacion, new SelectList(Model.ListTipoIdentificacion, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-2 control-label">Identificacion</label>
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(model => model.Identificacion, new { @class = "form-control" })
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <label class="col-md-2 control-label">Fecha Nacimiento</label>
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-2 control-label">Genero</label>
-                    <div class="col-md-4">
-                        @Html.DropDownListFor(model => model.DdlIdGenero, new SelectList(Model.ListGenero, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <label class="col-md-2 control-label">Pais Nacimiento</label>
-                    <div class="col-md-4">
-                        @Html.DropDownListFor(model => model.DdlIdPais, new SelectList(Model.ListPais, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-2 control-label">Departamento Nacimiento</label>
-                    <div class="col-md-4">
-                        @Html.DropDownListFor(model => model.DdlIdDepartamento, new SelectList(Model.ListDepartamento, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <label class="col-md-2 control-label">Ciudad Nacimiento</label>
-                    <div class="col-md-4">
-                        @Html.DropDownListFor(model => model.DdlIdCiudad, new SelectList(Model.ListCiudad, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-2 control-label">Fecha Expedicion Identificacion</label>
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(model => model.FechaExpedicion, new { @class = "form-control" })
-                    </div>
-                </div>
-            </div>
-            <h3 class="form-section">Datos de contacto</h3>
-            <div class="portlet-body form">
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Pais residencia</label>
-                            <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.ddlIdPaisRecidencia, new SelectList(Model.ListPaisRecidencia, "Id", "Nombre"), "- Seleccione-")
-                                <span class="help-block"> Seleccione el pais de residencia</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Departamento residencia</label>
-                            <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.ddlIdDepartamentoRecidencia, new SelectList(Model.ListDepartamentoRecidencia, "Id", "Nombre"), "- Seleccione-")
-                                <span class="help-block"> Seleccione el departamento de residencia.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Ciudad residencia</label>
-                            <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.ddlIdCiudadRecidencia, new SelectList(Model.ListCiudadRecidencia, "Id", "Nombre"), "- Seleccione-")
-                                <span class="help-block"> Seleccione la ciudad de residencia</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Direccion</label>
-                            <div class="col-md-9">
-                                @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
-                                <span class="help-block"> Maximo 256 caracteres</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Celular</label>
-                            <div class="col-md-9">
-                                @Html.TextBoxFor(model => model.Celular, new { @class = "form-control" })
-                                <span class="help-block"> Solo numeros</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Numero fijo</label>
-                            <div class="col-md-9">
-                                @Html.TextBoxFor(model => model.TelefonoFijo, new { @class = "form-control" })
-                                <span class="help-block"> Solo numeros</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Email</label>
-                            <div class="col-md-9">
-                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                                <span class="help-block"> Email</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Numero fijo</label>
-                            <div class="col-md-9">
-                                @Html.TextBoxFor(model => model.TelefonoFijo2, new { @class = "form-control" })
-                                <span class="help-block"> Solo numeros</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h3 class="form-section">Discapacidad</h3>
-            <div class="portlet-body form">
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Limitación fisica</label>
-                            <div class="col-md-9">
-                                @Html.DropDownListFor(model => model.ddlIdDiscapacidad, new SelectList(Model.ListDiscapacidad, "Id", "Nombre"), "- Seleccione-")
-                                <span class="help-block"> Seleccione el tipo de limitacion fisica si presenta alguna.</span>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Requiere algun tipo de apoyo </label>
-                            <div class="col-md-9">
-                                @Html.TextBoxFor(model => model.RequiereApoyo, new { @class = "form-control" })
-                                <span class="help-block"> Texto libre </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h3 class="form-section">Anexos</h3>
-            <div class="portlet-body form">
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Identificación</label>
-                            <div class="col-md-9">
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <span class="btn green btn-file">
-                                        <span class="fileinput-new"> Elija un archivo </span>
-                                        <span class="fileinput-exists"> Cambie el archivo </span>
-                                        <input type="file" name="...">
-                                    </span>
-                                    <span class="fileinput-filename"> </span> &nbsp;
-                                    <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Discapacidad</label>
-                            <div class="col-md-9">
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <span class="btn green btn-file">
-                                        <span class="fileinput-new"> Elija un archivo </span>
-                                        <span class="fileinput-exists"> Cambie el archivo </span>
-                                        <input type="file" name="...">
-                                    </span>
-                                    <span class="fileinput-filename"> </span> &nbsp;
-                                    <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-actions">
-            <div class="row">
-                <div class="col-md-6">
+        @using (Html.BeginForm("CrearPersona", "HojaDeVida"))
+        {
+            <div class="portlet light bordered">
+                <h3 class="form-section">Datos Basicos</h3>
+                <div class="portlet-body form">
                     <hr>
                     <div class="row">
-                        <div class="col-md-offset-3 col-md-9">
-                            <button type="submit" class="btn green">Guardar</button>
-                            <button type="button" class="btn default">Cancelar</button>
+                        <label class="col-md-2 control-label">Nombres</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">Apellidos</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <label class="col-md-2 control-label">Tipo Identificacion</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.DdlIdTipoIdentificacion, new SelectList(Model.ListTipoIdentificacion, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">Identificacion</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Identificacion, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <label class="col-md-2 control-label">Fecha Nacimiento</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">Genero</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.DdlIdGenero, new SelectList(Model.ListGenero, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <label class="col-md-2 control-label">Pais Nacimiento</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.DdlIdPais, new SelectList(Model.ListPais, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">Departamento Nacimiento</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.DdlIdDepartamento, new SelectList(Model.ListDepartamento, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <label class="col-md-2 control-label">Ciudad Nacimiento</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.DdlIdCiudad, new SelectList(Model.ListCiudad, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">Fecha Expedicion Identificacion</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.FechaExpedicion, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <h3 class="form-section">Datos de contacto</h3>
+                <div class="portlet-body form">
                     <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Pais residencia</label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(model => model.ddlIdPaisRecidencia, new SelectList(Model.ListPaisRecidencia, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                                    <span class="help-block"> Seleccione el pais de residencia</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Departamento residencia</label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(model => model.ddlIdDepartamentoRecidencia, new SelectList(Model.ListDepartamentoRecidencia, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                                    <span class="help-block"> Seleccione el departamento de residencia.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Ciudad residencia</label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(model => model.ddlIdCiudadRecidencia, new SelectList(Model.ListCiudadRecidencia, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                                    <span class="help-block"> Seleccione la ciudad de residencia</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Direccion</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
+                                    <span class="help-block"> Maximo 256 caracteres</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Celular</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Celular, new { @class = "form-control" })
+                                    <span class="help-block"> Solo numeros</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Numero fijo</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.TelefonoFijo, new { @class = "form-control" })
+                                    <span class="help-block"> Solo numeros</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Email</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                    <span class="help-block"> Email</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Numero fijo</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.TelefonoFijo2, new { @class = "form-control" })
+                                    <span class="help-block"> Solo numeros</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="form-section">Discapacidad</h3>
+                <div class="portlet-body form">
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Limitación fisica</label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(model => model.ddlIdDiscapacidad, new SelectList(Model.ListDiscapacidad, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                                    <span class="help-block"> Seleccione el tipo de limitacion fisica si presenta alguna.</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Requiere algun tipo de apoyo </label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.RequiereApoyo, new { @class = "form-control" })
+                                    <span class="help-block"> Texto libre </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="form-section">Anexos</h3>
+                <div class="portlet-body form">
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Identificación</label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <span class="btn green btn-file">
+                                            <span class="fileinput-new"> Elija un archivo </span>
+                                            <span class="fileinput-exists"> Cambie el archivo </span>
+                                            <input type="file" name="...">
+                                        </span>
+                                        <span class="fileinput-filename"> </span> &nbsp;
+                                        <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Discapacidad</label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <span class="btn green btn-file">
+                                            <span class="fileinput-new"> Elija un archivo </span>
+                                            <span class="fileinput-exists"> Cambie el archivo </span>
+                                            <input type="file" name="...">
+                                        </span>
+                                        <span class="fileinput-filename"> </span> &nbsp;
+                                        <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="submit">Enviar</button>
+                                <button type="button" class="btn default">Guardar</button>
+                                <button type="button" class="btn default">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <hr>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </div>
-

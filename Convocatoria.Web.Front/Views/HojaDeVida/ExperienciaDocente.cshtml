@@ -1,0 +1,150 @@
+﻿@using Convocatoria.Web.Front.Models
+@model HojaDeVidaModel
+
+<div class="row">
+    <div class="col-md-12 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <form action="#" class="form-horizontal">
+            <div class="form-body">
+                <h3 class="form-section">Experiencia docente</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Institución educativa</label>
+                            <div class="col-md-9">
+                                @* @Html.TextBoxFor(model => model.in)*@
+                                <input type="text" class="form-control" placeholder="Institución">
+                                <span class="help-block">Escriba la institución donde fue docente</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tipo de vinculación</label>
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(model => model.DdlIdTipoIdentificacion, new SelectList(Model.ListTipoIdentificacion, "Id", "Nombre"), "- Seleccione-", new { @class = "form-control" })
+                                <span class="help-block">Elija el tipo de vinculación</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Intesidad horaria</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Escriba el número de horas">
+                                <span class="help-block">Debe escribir la carga académica total</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Teléfono institución</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Escriba el teléfono">
+                                <span class="help-block">Debe escribir el teléfono de la institución</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">País donde enseñó</label>
+                            <div class="col-md-9">
+                                <select class="form-control">
+                                    <option value="">Colombia</option>
+                                    <option value="">Venezuela</option>
+                                </select>
+                                <span class="help-block"> Seleccione el país donde enseñó</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Departamento donde enseñó</label>
+                            <div class="col-md-9">
+                                <select class="form-control">
+                                    <option value="">Bogota DC</option>
+                                    <option value="">Cundinamarca</option>
+                                </select>
+                                <span class="help-block"> Seleccione el departamento donde enseñó</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Ciudad donde enseñó</label>
+                            <div class="col-md-9">
+                                <select class="form-control">
+                                    <option value="">Colombia</option>
+                                    <option value="">Venezuela</option>
+                                </select>
+                                <span class="help-block"> Seleccione la ciudad donde enseñó</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Fecha de ingreso</label>
+                            <div class="col-md-9">
+                                <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                                <span class="help-block"> Elija una fecha </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Fecha de retiro</label>
+                            <div class="col-md-9">
+                                <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                                <span class="help-block"> Elija una fecha </span>
+                                <label class="mt-checkbox">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> Actualmente
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="form-section">Anexos</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Certificado de docente</label>
+                        <div class="col-md-9">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <span class="btn green btn-file">
+                                    @*<span class="fileinput-new"> Elija un archivo </span>
+                                        <span class="fileinput-exists"> Cambie el archivo </span>*@
+                                    <input type="file" name="...">
+                                </span>
+                                <span class="fileinput-filename"> </span> &nbsp;
+                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-6">
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="submit" class="btn green">Guardar</button>
+                                <button type="button" class="btn default">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
