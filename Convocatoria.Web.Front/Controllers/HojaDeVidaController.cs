@@ -14,39 +14,10 @@ namespace Convocatoria.Web.Front.Controllers
         // GET: HojaDeVida
         Microservicios servicios = new Microservicios();
         HojaDeVidaModel modelo = new HojaDeVidaModel();
-        IndexModel model;
+        Negocio.Entidades.Persona persona = new Negocio.Entidades.Persona();
 
         public ActionResult Index(int? vista)
         {
-            /*Codigo de ejemplo Sergio Gracia */
-            //model = new IndexModel();
-            //Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetPaises();
-            //if (Datos.CodigoError == "200")
-            //{
-            //    foreach (var item in Datos.Lista)
-            //        model.ListaPaises.Add(new GeneriDropDownModel() { Id = item.Id, Nombre = item.Valor });
-            //}
-            //else
-            //{
-            //    //Administrar el error para mostrar en presentación , pendiente SAGC
-            //}
-            ////return View(model); se comenta por que ya hay un return view y no afectar el trabajo de yuly
-
-            ////ejemplo de cargar datos de una persona con el ID = 1
-
-            //Negocio.Dtos.DatosAspirante Aspirante = (Negocio.Dtos.DatosAspirante)new Negocio.Entidades.Aspirante().ConsultarAspirante(1);
-            //if (Aspirante.CodigoError == "200")
-            //{
-            //    modelo.Apellido = Aspirante.Apellido;
-            //    modelo.Identificacion = Aspirante.NoDocumento;
-            //    modelo.Nombre = Aspirante.Nombre;
-            //}
-            //else
-            //{
-            //    //Administrar el error para mostrar en presentación , pendiente SAGC
-            //}
-
-            /*FIN Codigo de ejemplo Sergio Gracia */
             modelo = new HojaDeVidaModel();
 
             modelo.Vista = Convert.ToInt32(vista);
@@ -57,17 +28,47 @@ namespace Convocatoria.Web.Front.Controllers
             }
             else if (modelo.Vista == 2)
             {
-                CargaInicialEL();
+                CargaInicialEL(0);
             }
             else// carga inicial de datos personales
             {
                 CargaInicialDP();
             }
+            AsignarModelo();
             return View(modelo);
         }
 
 
-        #region Cargas inciales drop down list
+        #region Cargas inciales 
+
+        private void ObtenerModelo()
+        {
+            try
+            {
+                if (TempData["ModelHojaVida"] != null)
+                {
+                    modelo = (HojaDeVidaModel)TempData["ModelHojaVida"];
+                }
+                else
+                    modelo = new HojaDeVidaModel();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+
+        }
+        public void AsignarModelo()
+        {
+            try
+            {
+                TempData["ModelHojaVida"] = modelo;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
         private List<ListTipoIdentificacion> CargarTipoIdentificacion()
         {
             List<ListTipoIdentificacion> list = new List<ListTipoIdentificacion>();
@@ -204,16 +205,63 @@ namespace Convocatoria.Web.Front.Controllers
                 throw;
             }
         }
+        public ActionResult CrearPersona(HojaDeVidaModel model)
+        {
+            //ObtenerModelo();
+            Negocio.Dtos.Persona personaCrear = new Negocio.Dtos.Persona();
+            Negocio.Dtos.Auditoria auditoria = new Negocio.Dtos.Auditoria();
+            personaCrear.Apellidos = modelo.Apellido;
+            //personaCrear.CiudadExamenes = model.CiudadExamanes;
+            personaCrear.CiudadNacimiento = Convert.ToInt32(modelo.DdlIdCiudad);
+            personaCrear.CiudadResidencia = Convert.ToInt32(modelo.ddlIdCiudadRecidencia) ;
+            personaCrear.Correo = modelo.Email;
+            personaCrear.DireccionResidencia = modelo.Direccion;
+            personaCrear.DiscapacidadComentario = modelo.RequiereApoyo;
+            personaCrear.FechaExpedicionDocumento = modelo.FechaExpedicion;
+            personaCrear.FechaNacimiento = modelo.FechaNacimiento;
+            personaCrear.Genero = Convert.ToInt32( modelo.DdlIdGenero);
+            personaCrear.Identificacion = modelo.Identificacion;
+            personaCrear.Nombres = modelo.Nombre;
+            personaCrear.TelefonoFijoContato = modelo.TelefonoFijo;
+            personaCrear.TelefonoMovilContacto = modelo.TelefonoFijo2;
+            personaCrear.TipoDiscapacidad = Convert.ToInt32(modelo.ddlIdDiscapacidad);
+            personaCrear.TipoIdentificacion = Convert.ToInt32(modelo.DdlIdTipoIdentificacion);
+            personaCrear.IdPersona = modelo.IdPersona;
+            Negocio.Dtos.Persona datosRetorno = (Negocio.Dtos.Persona)persona.Crear(personaCrear, auditoria);
+
+            if (datosRetorno.CodigoError == "200")
+            {
+                AsignarModelo();
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                if (modelo.Mensaje == null)
+                    modelo.Mensaje = new List<MensajeModel>();
+
+                modelo.Mensaje.Add(new MensajeModel() { Codigo = datosRetorno.CodigoError, Mensaje = datosRetorno.MensajeError, InformacionAdicional = "Create" });
+                AsignarModelo();
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+
+        }
         #endregion
 
         #region Experiencia laboral
-        private void CargaInicialEL()
+        private void CargaInicialEL(int? IdHv)
         {
             try
             {
                 modelo.ListPais = CargarPais();
                 modelo.ListDepartamento = CargarDepartamento();
                 modelo.ListCiudad = CargarCiudad();
+                modelo.ListExperiencia = new List<Negocio.Dtos.Laboral>();
+                if (Convert.ToInt32(IdHv) <= 0)
+                {
+                    modelo.IdHV = Convert.ToInt32(IdHv);
+                    Negocio.Entidades.Laboral labo = new Negocio.Entidades.Laboral();
+                    //modelo.ListExperiencia = labo.ConsultaXId(modelo.IdHV);
+                }
             }
             catch (Exception ex)
             {

@@ -8,6 +8,9 @@ namespace Convocatoria.Web.Front.Models
 {
     public class HojaDeVidaModel
     {
+        public int IdPersona { get; set; }
+        public int IdHV { get; set; }
+        public List<MensajeModel> Mensaje { get; set; }
         public int Vista { get; set; }
         public List<ListTipoIdentificacion> ListTipoIdentificacion { get; set; }
         public int? DdlIdTipoIdentificacion { get; set; }
@@ -48,6 +51,7 @@ namespace Convocatoria.Web.Front.Models
         public DateTime FechaInngreso { get; set; }
         public DateTime FechaTerminacion { get; set; }
         public bool Actualmente { get; set; }
+        public List<Negocio.Dtos.Laboral> ListExperiencia { get; set; }
         #endregion
     }
 
