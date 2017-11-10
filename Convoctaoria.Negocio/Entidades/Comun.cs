@@ -289,12 +289,12 @@ namespace Convocatoria.Negocio.Entidades
                         informacion.Lista.Add(new GenericDropDown() { Id = paises[i].ID_TP_ENTIDADEDUCATIVA, Valor = paises[i].NOMBRE });
                     }
                 }
-                informacion.CodigoError = "200";
+                informacion.Codigo = "200";
             }
             catch (Exception ex)
             {
-                informacion.MensajeError = ex.Message;
-                informacion.CodigoError = "403";
+                informacion.Mensaje = ex.Message;
+                informacion.Codigo = "403";
             }
             return informacion;
         }

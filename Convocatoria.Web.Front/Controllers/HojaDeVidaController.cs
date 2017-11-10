@@ -174,7 +174,7 @@ namespace Convocatoria.Web.Front.Controllers
             try
             {
                 Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetInstituciones();
-                if (Datos.CodigoError == "200")
+                if (Datos.Codigo == "200")
                 {
                     foreach (var item in Datos.Lista)
                         list.Add(new ListInstitucion() { Id = item.Id, Nombre = item.Valor });
@@ -277,7 +277,7 @@ namespace Convocatoria.Web.Front.Controllers
                 modelo.ListPais = CargarPais();
                 modelo.ListDepartamento = CargarDepartamento();
                 modelo.ListCiudad = CargarCiudad();
-                modelo.ListExperiencia = new List<Negocio.Dtos.Laboral>();
+                //modelo.ListExperiencia = new List<Negocio.Dtos.Laboral>(); 09/11/2017
                 if (Convert.ToInt32(IdHv) <= 0)
                 {
                     modelo.IdHV = Convert.ToInt32(IdHv);
