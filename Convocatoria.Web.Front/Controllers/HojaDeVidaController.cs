@@ -14,13 +14,11 @@ namespace Convocatoria.Web.Front.Controllers
         // GET: HojaDeVida
         Microservicios servicios = new Microservicios();
         HojaDeVidaModel modelo = new HojaDeVidaModel();
-        ExperienciaDocenteModel modeloDocente = new ExperienciaDocenteModel();
         Negocio.Entidades.Persona persona = new Negocio.Entidades.Persona();
 
         public ActionResult Index(int? vista)
         {
             modelo = new HojaDeVidaModel();
-            modeloDocente = new ExperienciaDocenteModel();
 
             modelo.Vista = Convert.ToInt32(vista);
 
@@ -31,6 +29,14 @@ namespace Convocatoria.Web.Front.Controllers
             else if (modelo.Vista == 0)// carga inicial de datos personales
             {
                 CargaInicialDP();
+            }
+            else if (modelo.Vista == 2)// carga inicial de datos personales
+            {
+                CargaInicialDP();
+            }
+            else if (modelo.Vista == 5)// carga inicial de experiencia docente
+            {
+                CargaInicialExperienciaDocente();
             }
             else// carga inicial de datos personales
             {
@@ -205,6 +211,25 @@ namespace Convocatoria.Web.Front.Controllers
             }
             return list;
         }
+
+        private IList<ItemDropDown> CargarTipoVinculacion()
+        {
+            IList<ItemDropDown> listaTipoVinculacion = new List<ItemDropDown>();
+            try
+            {
+                Negocio.Dtos.ListGenericDropDown Datos = (Negocio.Dtos.ListGenericDropDown)new Negocio.Entidades.Comun().GetTipoVinculacion();
+                if (Datos.Codigo == String.Empty)
+                {
+                    foreach (var item in Datos.Lista)
+                        listaTipoVinculacion.Add(new ItemDropDown() { Id = item.Id, Nombre = item.Valor });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return listaTipoVinculacion;
+        }
         #endregion
 
         #region Datos Personales
@@ -301,47 +326,16 @@ namespace Convocatoria.Web.Front.Controllers
         }
 
         #region Experiencia docente
-        private void ObtenerModeloDocente()
-        {
-            try
-            {
-                if (TempData["ModelExperienciaDocente"] != null)
-                {
-                    modeloDocente = (ExperienciaDocenteModel)TempData["ModelExperienciaDocente"];
-                }
-                else
-                    modeloDocente = new ExperienciaDocenteModel();
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
-
-        }
-        public void AsignarModeloDocente()
-        {
-            try
-            {
-                TempData["ModelExperienciaDocente"] = modeloDocente;
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
-        }
         public void CargaInicialExperienciaDocente()
         {
             try
             {
-                modelo.ListPais = CargarPais();
-                modelo.ListTipoIdentificacion = CargarTipoIdentificacion();
-                modelo.ListGenero = CargarGenero();
-                modelo.ListDepartamento = CargarDepartamento();
-                modelo.ListCiudad = CargarCiudad();
-                modelo.ListPaisRecidencia = CargarPais();
-                modelo.ListDepartamentoRecidencia = CargarDepartamento();
-                modelo.ListCiudadRecidencia = CargarCiudad();
-                modelo.ListDiscapacidad = CargarDiscapacidad();
+                modelo.ExperienciaDocenteModel = new ExperienciaDocenteModel();
+                modelo.ExperienciaDocenteModel.ListaCiudadEntidadEducativa = CargarCiudad();
+                modelo.ExperienciaDocenteModel.ListaTipoVinculacion = CargarTipoVinculacion();
+                modelo.ExperienciaDocenteModel.ListaEntidadEducativa = CargarInstitucion();
+                modelo.ExperienciaDocenteModel.ListaPaisEntidadEducativa = CargarPais();
+                modelo.ExperienciaDocenteModel.ListaDepartamentoEntidadEducativa = CargarDepartamento();
             }
             catch (Exception ex)
             {

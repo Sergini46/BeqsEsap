@@ -15,7 +15,11 @@ namespace Convocatoria.Web.Front.Models
 
         public int IdEntidadEducativa { get; set; }
 
+        public IList<ListInstitucion> ListaEntidadEducativa { get; set; }
+
         public int IdTipoVinculacion { get; set; }
+
+        public IList<ItemDropDown> ListaTipoVinculacion { get; set; }
 
         public int? HorasMensuales { get; set; }
 
@@ -25,6 +29,12 @@ namespace Convocatoria.Web.Front.Models
 
         public int IdCiudadEntidadEducativa { get; set; }
 
+        public IList<ListCiudad> ListaCiudadEntidadEducativa{ get; set; }
+
         public DateTime? FechaTerminacion { get; set; }
+
+        public IList<ListPais> ListaPaisEntidadEducativa { get; set; }
+
+        public IList<ListDepartamento> ListaDepartamentoEntidadEducativa { get; set; }
     }
 }

@@ -298,5 +298,32 @@ namespace Convocatoria.Negocio.Entidades
             }
             return informacion;
         }
+
+        public IModel GetTipoVinculacion()
+        {
+            ListGenericDropDown datos = new ListGenericDropDown();
+            datos.Lista = new List<GenericDropDown>();
+            try
+            {
+                using (var context = new Convocatoria.Datos.DBContext.ConvocatoriaModel())
+                {
+                    var datosConsultados = from AS in context.TP_TIPOVINCULACION
+                                select AS;
+
+                    List<Convocatoria.Datos.Entities.TP_TIPOVINCULACION> tipos = datosConsultados.ToList<Convocatoria.Datos.Entities.TP_TIPOVINCULACION>();
+                    for (int i = 0; i < tipos.Count; i++)
+                    {
+                        datos.Lista.Add(new GenericDropDown() { Id = tipos[i].ID_TP_TIPOVINCULACION, Valor = tipos[i].NOMBRE });
+                    }
+                }
+                datos.Codigo = String.Empty;
+            }
+            catch (Exception ex)
+            {
+                datos.Mensaje = ex.Message;
+                datos.Codigo = "403";
+            }
+            return datos;
+        }
     }
 }

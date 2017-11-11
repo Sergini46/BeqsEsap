@@ -62,7 +62,6 @@ namespace Convocatoria.Web.Front.Models
         public DateTime FechaFormalizacionSemestre { get; set; }
         #endregion
 
-
         #region Estudios No Formales
         
         public List<ListPais> ListPaisDondeEstudioNF { get; set; }
@@ -77,6 +76,10 @@ namespace Convocatoria.Web.Front.Models
         public string NombreTituloNF { get; set; }
         public int IntensidadHoraria { get; set; }
         public int AnnoTerminacion { get; set; }
+        #endregion
+
+        #region Experiencia Docente
+        public ExperienciaDocenteModel ExperienciaDocenteModel { get; set; }
         #endregion
 
     }
